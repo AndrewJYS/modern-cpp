@@ -149,7 +149,7 @@ void lambda_vector()
     }
 
     for_each(nums.begin(), nums.end(),
-             [&](int &tmp)
+             [&](int tmp)
              {
                  if (tmp > threshold)
                  {
