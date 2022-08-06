@@ -103,22 +103,23 @@ void test_move()
 {
     int a = 10; // a为左值
     //int && b = a; // error
-    int && c = std::move(a);
-    cout << c << endl;
+    int && c {std::move(a)};
+    cout << c << endl; // 10
+    cout << a << endl; // 10
 }
 
 int main()
 {
-    //MyString tmp1 = func();
+    MyString tmp1 = func();
     //含参构造函数，tmp = mike
     //析构函数: 已操作delete
 
     //MyString && tmp2 = func();
 
-    MyString tmp("abcd");
-    tmp = func();
+    //MyString tmp("abcd");
+    //tmp = func();
 
-    test_move();
+    //test_move();
 
     return 0;
 }

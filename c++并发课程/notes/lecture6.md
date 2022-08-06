@@ -307,3 +307,14 @@ u1.unlock();
 
 ## std::unique_lock所有权的传递  
 
+```c++
+std::unique_lock<std::mutex> uq1(my_mutex);
+```
+
+上述语句表示uq1拥有对my_mutex的所有权，uq1可以把自己对my_mutex的所有权交给其他std::unique_lock对象  
+
+```c++
+std::unique_lock<std::mutex> uq1(my_mutex);
+std::unique_lock<std::mutex> uq2(std::move(uq1));
+//把uq1占有的my_mutex转交给uq2，此时uq1指向空，不能再使用
+```
