@@ -1,3 +1,0 @@
-# types and declarations  
-
-## types  
