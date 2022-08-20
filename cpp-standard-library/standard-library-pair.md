@@ -2,6 +2,17 @@
 
 ## 基本操作  
 
+<style>
+table th:first-of-type {
+    width: 20%;
+}
+table th:nth-of-type(2) {
+    width: 30%;
+}
+table th:nth-of-type(3) {
+    width: 50%;
+}
+</style>
 |Operation|Effect|examples|
 :-:|:-:|:-:
 | pair<T1,T2> p | Default constructor; creates a pair of values of types T1 and T2, initialized with their default constructors | std::pair<int, int> i_pair1; |
