@@ -100,7 +100,7 @@ To ameliorate the code (especially the return type):
 3.Declare the return type to be the “common type” of the two parameter types (**recommended**).  
 
 ```c++
-//2.
+//2. (begins with c++14)
 template<typename T1, typename T2>
 auto maxauto(T1 a, T2 b)
 {
@@ -122,6 +122,8 @@ typename std::common_type<T1, T2>::type maxcommon(const T1& a, const T2& b)
 ## Default Template Arguments  
 
 ```c++
+#include <type_traits>
+
 template <typename T1, typename T2,
           typename RT = typename std::decay_t<decltype(true? T1(): T2())>::type>
 RT maxdefault1(const T1& a, const T2& b)
@@ -141,10 +143,7 @@ template <typename T1, typename T2,
 RT maxdefault3(const T1& a, const T2& b)
 {
     return b < a ? a : b;
-}    int i = 42;
-    //std::cout << "max(7,i): " << maxdefault1(7,i) << '\n'; //err, no matching function for call to 'maxdefault(int, int&)'
-    std::cout << "max(7,i): " << maxdefault2(7,i) << '\n';
-    std::cout << "max(7,i): " << maxdefault3(7,i) << '\n';
+}
 ```
 
 ```c++
